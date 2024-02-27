@@ -1,0 +1,42 @@
+
+// For font size ////////////////
+@each $key, $val in $font-size {
+  .tx-#{$key} {
+    font-size: $val;}
+  .hover\:tx-#{$key} {
+    &:hover {
+      font-size: $val;}}
+
+}
+
+// Text color ////////////
+@each $key, $val in $colors {
+  .tx-#{$key} {
+    color: $val;}
+  .hover\:tx-#{$key} {
+    &:hover {
+      color: $val;}}
+
+}
+
+@each $ktc, $vtc in $colors {
+
+  @each $key, $value in $w-mix {
+    $percentage:( $value * 1%); 
+    .tx-#{$ktc}-#{($key * 100)} {
+      color: mix(white, $vtc, $percentage);}
+
+    .hover\:tx-#{$ktc}-#{($key * 100)} {
+      &:hover{
+        color: mix(white, $vtc, $percentage);}}}
+
+  @each $key, $value in $b-mix {
+    $percentage:( $value * 1%); 
+    .tx-#{$ktc}-#{$key * 100} {
+      color: mix(black, $vtc, $percentage);}
+
+    .hover\:tx-#{$ktc}-#{($key * 100)} {
+      &:hover{
+        color: mix(white, $vtc, $percentage);}}}
+
+}

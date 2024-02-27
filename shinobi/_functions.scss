@@ -1,5 +1,16 @@
 @function light-comp($color) {
   $complement: complement($color);
-  $light-complement: lighten($complement, 30%);
+  $light-complement: lighten($complement, 60%);
   @return $light-complement;
+}
+
+@function dark-comp($color) {
+  $complement: complement($color);
+  $dark-complement: darken($complement, 10%);
+  @return $dark-complement;
+}
+
+
+@function frem($val){
+  @return $val*0.25rem;
 }

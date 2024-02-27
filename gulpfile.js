@@ -3,9 +3,9 @@ const sass = require('gulp-sass')(require('sass'))
 const purgecss = require('gulp-purgecss')
 
 function buildStyles() {
-  return src('sass/**/*.scss')
-    .pipe(sass({ outputStyle: 'compressed' }))
-    .pipe(purgecss({ content: ['*.html'] }))
+  return src('shinobi/**/*.scss')
+    .pipe(sass())
+    // .pipe(purgecss({ content: ['*.html'] }))
     .pipe(dest('css'))
 }
 
@@ -14,3 +14,5 @@ function watchTask() {
 }
 
 exports.default = series(buildStyles, watchTask)
+
+// { outputStyle: 'compressed' }

@@ -1,25 +1,31 @@
-// theme colors
-$primary: #326dee !default;
-$secondary: #1ac886 !default;
-$error: #d32752 !default;
-$info: #f6c31c !default;
+@use 'sass:math';
 
-// color palette
+$primary : #0D6EFD !default;
+$secondary : #6C757D !default;
+$success : #198754;
+$info : #0DCAF0;
+$warning : #FFC107;
+$error : #DC3545;
+$light : #F8F9FA;
+$dark : #212529;
+
+
 $colors: (
-  "primary": $primary,
-  "secondary": $secondary,
-  "error": $error,
-  "info": $info,
-  "blue": #1919e6,
-  "red": #e61919,
-  "yellow": #e6e619,
-  "green": #19e635,
-  "orange": #ffa600,
-  "purple": #9900ff,
-  "gray": #808080,
-  "black": black,
-  "white": white,
-) !default;
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "error":     $error,
+  "light":      $light,
+  "dark":       $dark
+)!default;
+
+$w-mix: (1:80, 2:60, 3:40, 4:20, );
+$b-mix: ( 5:0, 6:20, 7:40, 8:60, 9:80, );
+
+@mixin border() {
+  @content;}
 
 // spacing
 $base-padding: 0.75rem !default;
@@ -33,8 +39,53 @@ $base-border-radius: 20px !default;
 $base-box-shadow: 1px 3px 5px rgba(0,0,0,0.1) !default;
 
 // font sizes
-$base-font-size: 1rem !default;
-$font-size-sm: $base-font-size * 0.75 !default;
-$font-size-lg: $base-font-size * 1.5 !default;
-$font-size-xl: $base-font-size * 2 !default;
-$font-size-xxl: $base-font-size * 3 !default;
+$font-size-base: 1rem !default;
+$font-size-sm: $font-size-base * 0.75 !default;
+$font-size-lg: $font-size-base * 1.5 !default;
+$font-size-xl: $font-size-base * 2 !default;
+$font-size-xxl: $font-size-base * 3 !default;
+
+$border-radius: (
+  "none": 0,
+  "xs": math.div($base-border-radius, 4),
+  "sm": math.div($base-border-radius, 2),
+  "lg": $base-border-radius * 2,
+  "full": 50%,);
+
+$sides: (
+  "t": top,
+  "r": right,
+  "b": bottom,
+  "l": left,
+  "y": (top,bottom) ,
+  "x": (left,right));
+
+$display: (
+  "n": none,
+  "b": block,
+  "f": flex,
+  "i": inline,
+  "ib": inline-block);
+  
+$font-size: (
+  "sm": $font-size-sm,
+  "md": $font-size-base,
+  "lg": $font-size-lg,
+  "xl": $font-size-xl,
+  "xxl": $font-size-xxl);
+ 
+$grid-columns: 12;
+
+$layout-values: flex-start, flex-end, center, space-between, space-around;
+
+$breakpoints: (
+  "xs": 0,
+  "sm": 480px,
+  "md": 720px,
+  "lg": 960px,
+  "xl": 1200px,
+);
+
+
+  
+

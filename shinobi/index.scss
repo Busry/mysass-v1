@@ -2,7 +2,7 @@
 @import 'functions';
 @import 'variables';
 
-// base & layout
+// base & layouts
 @import 'base';
 @import 'breakpoints';
 @import 'grid';
@@ -10,9 +10,13 @@
 // colors
 @import "colors";
 
+// text
+@import "text";
+
 // components (button, card, navbar etc)
 @import 'components/card';
 @import 'components/button';
+@import 'components/border';
 @import 'components/navbar';
 @import 'components/badge';
 

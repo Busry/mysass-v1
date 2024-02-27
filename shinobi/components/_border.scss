@@ -1,0 +1,14 @@
+
+.border {
+  @include border{
+    border: 1px solid black;}
+}
+.br{
+  border-radius: $base-border-radius;
+}
+
+@each $key, $val in $border-radius {
+  .br-#{$key}{
+    border-radius: $val;
+  }
+}

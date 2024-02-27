@@ -1,46 +1,54 @@
-@each $key, $val in $colors {
-  .text-#{$key} {
-    color: $val;
-  }
-  .text-hover-#{$key} {
-    &:hover {
-      color: $val;
-    }
-  }
-  .bg-#{$key} {
-    background-color: $val;
-  }
-  @if ($val != black and $val != white) {
-    // light variations
-    @for $i from 1 through 9 {
-      .text-#{$key}-light-#{$i} {
-        color: mix(white, $val, $i * 10);
-      }
-      .text-hover-#{$key}-light-#{$i} {
-        &:hover {
-          color: mix(white, $val, $i * 10);
-        }
-      }
-      .bg-#{$key}-light-#{$i} {
-        background-color: mix(white, $val, $i * 10);
-      }
-    }
 
-    // dark variations
-    @for $i from 1 through 9 {
-      .text-#{$key}-dark-#{$i} {
-        color: mix(black, $val, $i * 10);
-      }
-      .text-hover-#{$key}-dark-#{$i} {
-        &:hover {
-          color: mix(black, $val, $i * 10);
-        }
-      }
-      .bg-#{$key}-dark-#{$i} {
-        background-color: mix(black, $val, $i * 10);
-      }
-    }
-  }
+@each $key, $val in $colors {
+
+
+  // For background ////////////
+  .bg-#{$key} {
+    background-color: $val;}
+  .hover\:bg-#{$key} {
+    &:hover {
+      background-color: $val;}}
+
+  // For outline or border //////////
+  .border-#{$key} {
+    @include border{
+      border: 1px solid $val;}} 
+        
+  .hover\:border-#{$key} {
+    &:hover {
+      @include border{
+        border: 1px solid $val;}}}
+ 
+  // For compliment colors //////////
+  .complement-#{$key} {
+    background-color: $val; 
+    color: light-comp($val);}  
+
+  .hover\:complement-#{$key} {
+    &:hover {
+      background-color: $val;  
+      color: light-comp($val);}}
+
 }
 
-// &:nth-child, &:active, &:visited, &:last-child etc
+@each $ktc, $vtc in $colors {
+  // For background color ////////////////
+  @each $key, $value in $w-mix {
+    $percentage:( $value * 1%); 
+    .bg-#{$ktc}-#{($key * 100)} {
+      background-color: mix(white, $vtc, $percentage);}
+
+    .hover\:bg-#{$ktc}-#{($key * 100)} {
+      &:hover{
+        background-color: mix(white, $vtc, $percentage);}}}
+
+  @each $key, $value in $b-mix {
+    $percentage:( $value * 1%); 
+    .bg-#{$ktc}-#{$key * 100} {
+      background-color: mix(black, $vtc, $percentage);}
+
+    .hover\:bg-#{$ktc}-#{($key * 100)} {
+      &:hover{
+        background-color: mix(white, $vtc, $percentage);}}}
+      
+}
