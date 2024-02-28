@@ -114,6 +114,7 @@ Each row is made up of 12 grid
 `row` to turm the div to a row and
 `col-6` to tell a content the number of column it will occupied.
 `lg:col-6` to tell a content the number of column it will occupied on a large screen.
+![copy of grid](image.png)
 
 ## Hover
 
