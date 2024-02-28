@@ -66,14 +66,15 @@ $display: (
   "f": flex,
   "i": inline,
   "ib": inline-block);
-  
+
 $font-size: (
   "sm": $font-size-sm,
   "md": $font-size-base,
   "lg": $font-size-lg,
   "xl": $font-size-xl,
   "xxl": $font-size-xxl);
- 
+
+
 $grid-columns: 12;
 
 $layout-values: flex-start, flex-end, center, space-between, space-around;
@@ -87,5 +88,5 @@ $breakpoints: (
 );
 
 
-  
+
 
